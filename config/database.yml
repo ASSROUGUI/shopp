@@ -20,7 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
+ 
 production:
-  <<: *default
+    <<: *default
     adapter: postgresql
-  database: db/production.sqlite3
+    encoding: unicode
+ database: db/test.sqlite3
+    host: <%= ENV['RDS_HOSTNAME'] %>
+    port: <%= ENV['RDS_PORT'] %>
